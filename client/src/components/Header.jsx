@@ -50,7 +50,7 @@ const Header = () => {
 	const { isOpen, onOpen, onClose } = useDisclosure();
 	const dispatch = useDispatch();
 	const toast = useToast();
-	const { favoritesToggled } = useSelector((state) => state.product);
+	
 	
 	const { userInfo } = useSelector((state) => state.user);
 	const [showBanner, setShowBanner] = useState(userInfo ? !userInfo.active : false);
@@ -78,14 +78,7 @@ const Header = () => {
 							icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
 							onClick={isOpen ? onClose : onOpen}
 						/>
-						<IconButton
-							ml='12'
-							position='absolute'
-							icon={<TbShoppingCart size='20px' />}
-							as={ReactLink}
-							to='/cart'
-							variant='ghost'
-						/>
+						
 						
 					</Flex>
 					<HStack spacing='8' alignItems='center'>
@@ -100,10 +93,7 @@ const Header = () => {
 									<Text fontWeight='medium'>{link.name}</Text>
 								</NavLink>
 							))}
-							<Box>
-								<IconButton icon={<TbShoppingCart size='20px' />} as={ReactLink} to='/cart' variant='ghost' />
-								
-							</Box>
+							
 
 							<ColorModeToggle />
 							
@@ -181,19 +171,7 @@ const Header = () => {
 									</NavLink>
 								))}
 							</Stack>
-							{favoritesToggled ? (
-								<IconButton
-									onClick={() => dispatch(toggleFavorites(false))}
-									icon={<MdOutlineFavorite size='20px' />}
-									variant='ghost'
-								/>
-							) : (
-								<IconButton
-									onClick={() => dispatch(toggleFavorites(true))}
-									icon={<MdOutlineFavoriteBorder size='20px' />}
-									variant='ghost'
-								/>
-							)}
+							
 							<ColorModeToggle />
 						</Box>
 					)}
