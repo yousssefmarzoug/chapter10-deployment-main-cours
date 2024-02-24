@@ -51,15 +51,11 @@ const Header = () => {
 	const dispatch = useDispatch();
 	const toast = useToast();
 	const { favoritesToggled } = useSelector((state) => state.product);
-	const { cartItems } = useSelector((state) => state.cart);
+	
 	const { userInfo } = useSelector((state) => state.user);
 	const [showBanner, setShowBanner] = useState(userInfo ? !userInfo.active : false);
 
-	useEffect(() => {
-		if (userInfo && !userInfo.active) {
-			setShowBanner(true);
-		}
-	}, [favoritesToggled, dispatch, userInfo]);
+	
 
 	const logoutHandler = () => {
 		googleLogout();
@@ -90,11 +86,7 @@ const Header = () => {
 							to='/cart'
 							variant='ghost'
 						/>
-						{cartItems.length > 0 && (
-							<Text fontWeight='bold' fontStyle='italic' position='absolute' ml='74px' mt='-6' fontSize='sm'>
-								{cartItems.length}
-							</Text>
-						)}
+						
 					</Flex>
 					<HStack spacing='8' alignItems='center'>
 						<Box alignItems='center' display='flex' as={ReactLink} to='/'>
@@ -110,27 +102,11 @@ const Header = () => {
 							))}
 							<Box>
 								<IconButton icon={<TbShoppingCart size='20px' />} as={ReactLink} to='/cart' variant='ghost' />
-								{cartItems.length > 0 && (
-									<Text fontWeight='bold' fontStyle='italic' position='absolute' ml='26px' mt='-6' fontSize='sm'>
-										{cartItems.length}
-									</Text>
-								)}
+								
 							</Box>
 
 							<ColorModeToggle />
-							{favoritesToggled ? (
-								<IconButton
-									onClick={() => dispatch(toggleFavorites(false))}
-									icon={<MdOutlineFavorite size='20px' />}
-									variant='ghost'
-								/>
-							) : (
-								<IconButton
-									onClick={() => dispatch(toggleFavorites(true))}
-									icon={<MdOutlineFavoriteBorder size='20px' />}
-									variant='ghost'
-								/>
-							)}
+							
 						</HStack>
 					</HStack>
 					<Flex alignItems='center'>
