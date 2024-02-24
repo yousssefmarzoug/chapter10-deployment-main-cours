@@ -9,7 +9,7 @@ import path from 'path';
 import productRoutes from './routes/productRoutes.js';
 import userRoutes from './routes/userRoutes.js';
 
-import orderRoutes from './routes/orderRoutes.js';
+
 
 connectToDatabase();
 const app = express();
@@ -19,7 +19,7 @@ app.use(cors());
 app.use('/api/products', productRoutes);
 app.use('/api/users', userRoutes);
 
-app.use('/api/orders', orderRoutes);
+
 const GOOGLE_CLIENT_ID='198987498194-4r9giah0i505lulic3ik5n14etc9te7v.apps.googleusercontent.com'
 
 app.get('/api/config/google', (req, res) => res.send(GOOGLE_CLIENT_ID));

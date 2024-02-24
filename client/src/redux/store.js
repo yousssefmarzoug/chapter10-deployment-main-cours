@@ -10,7 +10,7 @@ const reducer = combineReducers({
 	product,
 	
 	user,
-	order,
+	
 	admin,
 });
 

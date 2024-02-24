@@ -54,7 +54,7 @@ function App() {
 							<Routes>
 								<Route path='/products' element={<ProductsScreen />} />
 								<Route path='/' element={<LandingScreen />} />
-								<Route path='/product/:id' element={<ProductScreen />} />
+								
 								
 								<Route path='/login' element={<LoginScreen />} />
 								<Route path='/registration' element={<RegistrationScreen />} />
@@ -62,7 +62,7 @@ function App() {
 								<Route path='/password-reset/:token' element={<PasswordResetScreen />} />
 								
 								<Route path='/cancel' element={<CancelScreen />} />
-								<Route path='/order-history' element={<YourOrdersScreen />} />
+								
 								<Route path='/success' element={<SuccessScreen />} />
 								<Route path='/admin-console' element={<AdminConsoleScreen />} />
 							</Routes>
