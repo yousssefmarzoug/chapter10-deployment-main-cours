@@ -3,8 +3,7 @@ import {
 	setLoading,
 	setError,
 	setPagination,
-	setFavorites,
-	setFavoritesToggle,
+	
 	setProduct,
 	
 	resetError,
@@ -31,40 +30,11 @@ export const getProducts = (page, favouriteToggle) => async (dispatch) => {
 	}
 };
 
-export const addToFavorites = (id) => async (dispatch, getState) => {
-	const {
-		product: { favorites },
-	} = getState();
 
-	const newFavorites = [...favorites, id];
-	localStorage.setItem('favorites', JSON.stringify(newFavorites));
-	dispatch(setFavorites(newFavorites));
-};
 
-export const removeFromFavorites = (id) => async (dispatch, getState) => {
-	const {
-		product: { favorites },
-	} = getState();
 
-	const newFavorites = favorites.filter((favoriteId) => favoriteId !== id);
-	localStorage.setItem('favorites', JSON.stringify(newFavorites));
-	dispatch(setFavorites(newFavorites));
-};
 
-export const toggleFavorites = (toggle) => async (dispatch, getState) => {
-	const {
-		product: { favorites, products },
-	} = getState();
 
-	if (toggle) {
-		const filteredProducts = products.filter((product) => favorites.includes(product._id));
-		dispatch(setFavoritesToggle(toggle));
-		dispatch(setProducts(filteredProducts));
-	} else {
-		dispatch(setFavoritesToggle(false));
-		dispatch(getProducts(1));
-	}
-};
 
 export const getProduct = (id) => async (dispatch) => {
 	dispatch(setLoading(true));
