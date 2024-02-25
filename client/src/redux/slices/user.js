@@ -47,16 +47,12 @@ export const userSlice = createSlice({
 			state.serverMsg = null;
 			state.error = null;
 		},
-		setUserOrders: (state, { payload }) => {
-			state.error = null;
-			state.orders = payload;
-			state.loading = false;
-		},
+		
 	},
 });
 
 export const {
-	setUserOrders,
+	
 	setError,
 	setLoading,
 	setServerResponseStatus,

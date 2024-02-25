@@ -62,7 +62,7 @@ function App() {
 								<Route path='/password-reset/:token' element={<PasswordResetScreen />} />
 								
 								<Route path='/cancel' element={<CancelScreen />} />
-								<Route path='/order-history' element={<YourOrdersScreen />} />
+								
 								<Route path='/success' element={<SuccessScreen />} />
 								<Route path='/admin-console' element={<AdminConsoleScreen />} />
 							</Routes>

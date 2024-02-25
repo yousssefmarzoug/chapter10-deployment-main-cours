@@ -1,6 +1,6 @@
 import axios from 'axios';
 import {
-	setUserOrders,
+	
 	setError,
 	setLoading,
 	setServerResponseStatus,
@@ -11,7 +11,7 @@ import {
 	stateReset,
 } from '../slices/user';
 
-import { clearCart } from '../slices/cart';
+
 
 export const login = (email, password) => async (dispatch) => {
 	dispatch(setLoading(true));
@@ -158,27 +158,4 @@ export const googleLogin = (googleId, email, name, googleImage) => async (dispat
 	}
 };
 
-export const getUserOrders = () => async (dispatch, getState) => {
-	dispatch(setLoading(true));
 
-	const {
-		user: { userInfo },
-	} = getState();
-
-	try {
-		const config = { headers: { Authorization: `Bearer ${userInfo.token}`, 'Content-Type': 'application/json' } };
-
-		const { data } = await axios.get(`/api/users/${userInfo._id}`, config);
-		dispatch(setUserOrders(data));
-	} catch (error) {
-		dispatch(
-			setError(
-				error.response && error.response.data.message
-					? error.response.data.message
-					: error.message
-					? error.message
-					: 'An expected error has occured. Please try again later.'
-			)
-		);
-	}
-};
