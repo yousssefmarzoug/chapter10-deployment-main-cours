@@ -7,9 +7,9 @@ export const initialState = {
 	product: null,
 	pagination: {},
 	
-	reviewed: false,
 	
-	reviewRemoval: false,
+	
+	
 	productUpdate: false,
 };
 

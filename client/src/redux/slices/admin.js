@@ -43,7 +43,7 @@ export const adminSlice = createSlice({
 	},
 });
 
-export const { setDeliveredFlag, setError, setLoading, resetError,  getUsers, userDelete } =
+export const {  setError, setLoading, resetError,  getUsers, userDelete } =
 	adminSlice.actions;
 
 export default adminSlice.reducer;
