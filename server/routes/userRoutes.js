@@ -5,7 +5,7 @@ import jwt from 'jsonwebtoken';
 import { sendVerificationEmail } from '../middleware/sendVerificationEmail.js';
 import { sendPasswordResetEmail } from '../middleware/sendPasswordResetEmail.js';
 import { protectRoute, admin } from '../middleware/authMiddleware.js';
-import Order from '../models/Order.js';
+
 
 const userRoutes = express.Router();
 const TOKEN_SECRET ='secret';
