@@ -7,9 +7,7 @@ export const initialState = {
 	product: null,
 	pagination: {},
 	
-	reviewed: false,
 	
-	reviewRemoval: false,
 	productUpdate: false,
 };
 
@@ -24,13 +22,13 @@ export const productsSlice = createSlice({
 			state.loading = false;
 			state.error = null;
 			state.products = payload;
-			state.reviewRemoval = false;
+			
 		},
 		setProduct: (state, { payload }) => {
 			state.product = payload;
 			state.loading = false;
 			state.error = null;
-			state.reviewed = false;
+			
 		},
 		setError: (state, { payload }) => {
 			state.loading = false;
@@ -46,9 +44,9 @@ export const productsSlice = createSlice({
 		
 		resetError: (state) => {
 			state.error = null;
-			state.reviewed = false;
+			
 			state.productUpdate = false;
-			state.reviewRemoval = false;
+			
 		},
 		setProductUpdateFlag: (state) => {
 			state.productUpdate = true;
