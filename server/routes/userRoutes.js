@@ -171,15 +171,7 @@ const googleLogin = asyncHandler(async (req, res) => {
 	}
 });
 
-const getUserOrders = asyncHandler(async (req, res) => {
-	const orders = await Order.find({ user: req.params.id });
-	if (orders) {
-		res.json(orders);
-	} else {
-		res.status(404).send('No orders could be found.');
-		throw new Error('No Orders found.');
-	}
-});
+
 
 const getUsers = asyncHandler(async (req, res) => {
 	const users = await User.find({});
@@ -202,7 +194,7 @@ userRoutes.route('/verify-email').get(protectRoute, verifyEmail);
 userRoutes.route('/password-reset-request').post(passwordResetRequest);
 userRoutes.route('/password-reset').post(protectRoute, passwordReset);
 userRoutes.route('/google-login').post(googleLogin);
-userRoutes.route('/:id').get(protectRoute, getUserOrders);
+
 userRoutes.route('/').get(protectRoute, admin, getUsers);
 userRoutes.route('/:id').delete(protectRoute, admin, deleteUser);
 
