@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { setProducts, setProductUpdateFlag, setReviewRemovalFlag } from '../slices/product';
+import { setProducts, setProductUpdateFlag } from '../slices/product';
 import {
 	setDeliveredFlag,
 	setError,
@@ -201,25 +201,4 @@ export const uploadProduct = (newProduct) => async (dispatch, getState) => {
 	}
 };
 
-export const removeReview = (productId, reviewId) => async (dispatch, getState) => {
-	setLoading();
-	const {
-		user: { userInfo },
-	} = getState();
 
-	const config = { headers: { Authorization: `Bearer ${userInfo.token}`, 'Content-Type': 'application/json' } };
-	console.log('asdfdsaf');
-	try {
-		const { data } = await axios.put(`api/products/${productId}/${reviewId}`, {}, config);
-		dispatch(setProducts(data));
-		dispatch(setReviewRemovalFlag());
-	} catch (error) {
-		setError(
-			error.response && error.response.data.message
-				? error.response.data.message
-				: error.message
-				? error.message
-				: 'An expected error has occured. Please try again later.'
-		);
-	}
-};

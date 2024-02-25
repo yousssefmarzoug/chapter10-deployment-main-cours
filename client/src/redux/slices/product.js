@@ -47,11 +47,7 @@ export const productsSlice = createSlice({
 		setFavoritesToggle: (state, { payload }) => {
 			state.favoritesToggled = payload;
 		},
-		productReviewed: (state, { payload }) => {
-			state.loading = false;
-			state.error = null;
-			state.reviewed = payload;
-		},
+		
 		resetError: (state) => {
 			state.error = null;
 			state.reviewed = false;
@@ -62,11 +58,7 @@ export const productsSlice = createSlice({
 			state.productUpdate = true;
 			state.loading = false;
 		},
-		setReviewRemovalFlag: (state) => {
-			state.error = null;
-			state.reviewRemoval = true;
-			state.loading = false;
-		},
+		
 	},
 });
 
@@ -78,10 +70,10 @@ export const {
 	setFavoritesToggle,
 	setFavorites,
 	setProduct,
-	productReviewed,
+	
 	setProductUpdateFlag,
 	resetError,
-	setReviewRemovalFlag,
+	
 } = productsSlice.actions;
 
 export default productsSlice.reducer;
