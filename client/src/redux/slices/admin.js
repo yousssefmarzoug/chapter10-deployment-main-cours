@@ -25,21 +25,13 @@ export const adminSlice = createSlice({
 			state.error = null;
 			state.loading = false;
 		},
-		getOrders: (state, { payload }) => {
-			state.orders = payload;
-			state.error = null;
-			state.loading = false;
-		},
+		
 		userDelete: (state) => {
 			state.error = null;
 			state.loading = false;
 			state.userRemoval = true;
 		},
-		orderDelete: (state) => {
-			state.error = null;
-			state.loading = false;
-			state.orderRemoval = true;
-		},
+		
 		resetError: (state) => {
 			state.error = null;
 			state.loading = false;
@@ -47,10 +39,7 @@ export const adminSlice = createSlice({
 			state.deliveredFlag = false;
 			state.orderRemoval = false;
 		},
-		setDeliveredFlag: (state) => {
-			state.deliveredFlag = true;
-			state.loading = false;
-		},
+		
 	},
 });
 

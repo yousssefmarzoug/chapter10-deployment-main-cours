@@ -1,14 +1,14 @@
 import axios from 'axios';
 import { setProducts, setProductUpdateFlag } from '../slices/product';
 import {
-	setDeliveredFlag,
+	
 	setError,
 	setLoading,
 	resetError,
-	getOrders,
+	
 	getUsers,
 	userDelete,
-	orderDelete,
+	
 } from '../slices/admin';
 
 export const getAllUsers = () => async (dispatch, getState) => {
@@ -55,71 +55,10 @@ export const deleteUser = (id) => async (dispatch, getState) => {
 	}
 };
 
-export const getAllOrders = () => async (dispatch, getState) => {
-	setLoading();
-	const {
-		user: { userInfo },
-	} = getState();
 
-	const config = { headers: { Authorization: `Bearer ${userInfo.token}`, 'Content-Type': 'application/json' } };
 
-	try {
-		const { data } = await axios.get('api/orders', config);
-		dispatch(getOrders(data));
-	} catch (error) {
-		setError(
-			error.response && error.response.data.message
-				? error.response.data.message
-				: error.message
-				? error.message
-				: 'An expected error has occured. Please try again later.'
-		);
-	}
-};
 
-export const deleteOrder = (id) => async (dispatch, getState) => {
-	setLoading();
-	const {
-		user: { userInfo },
-	} = getState();
 
-	const config = { headers: { Authorization: `Bearer ${userInfo.token}`, 'Content-Type': 'application/json' } };
-
-	try {
-		const { data } = await axios.delete(`api/orders/${id}`, config);
-		dispatch(orderDelete(data));
-	} catch (error) {
-		setError(
-			error.response && error.response.data.message
-				? error.response.data.message
-				: error.message
-				? error.message
-				: 'An expected error has occured. Please try again later.'
-		);
-	}
-};
-
-export const setDelivered = (id) => async (dispatch, getState) => {
-	setLoading();
-	const {
-		user: { userInfo },
-	} = getState();
-
-	const config = { headers: { Authorization: `Bearer ${userInfo.token}`, 'Content-Type': 'application/json' } };
-
-	try {
-		await axios.put(`api/orders/${id}`, {}, config);
-		dispatch(setDeliveredFlag());
-	} catch (error) {
-		setError(
-			error.response && error.response.data.message
-				? error.response.data.message
-				: error.message
-				? error.message
-				: 'An expected error has occured. Please try again later.'
-		);
-	}
-};
 
 export const resetErrorAndRemoval = () => async (dispatch) => {
 	dispatch(resetError());
