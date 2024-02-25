@@ -5,7 +5,7 @@ import { addToFavorites, removeFromFavorites } from '../redux/actions/productAct
 import { useSelector, useDispatch } from 'react-redux';
 import { MdOutlineFavorite, MdOutlineFavoriteBorder } from 'react-icons/md';
 import { Link as ReactLink } from 'react-router-dom';
-import { addCartItem } from '../redux/actions/cartActions';
+
 import { useEffect } from 'react';
 import { TbShoppingCartPlus } from 'react-icons/tb';
 
