@@ -3,31 +3,31 @@ import { createSlice } from '@reduxjs/toolkit';
 export const initialState = {
 	loading: false,
 	error: null,
-	products: [],
-	product: null,
+	courses: [],
+	course: null,
 	pagination: {},
-	productUpdate: false,
+	courseUpdate: false,	
 };
 
-export const productsSlice = createSlice({
-	name: 'products',
+export const coursesSlice = createSlice({
+	name: 'courses',
 	initialState,
 	reducers: {
 		setLoading: (state) => {
 			state.loading = true;
 		},
-		setProducts: (state, { payload }) => {
+		setCourses: (state, { payload }) => {
 			state.loading = false;
 			state.error = null;
-			state.products = payload;
-			
+			state.courses = payload;
 		},
-		setProduct: (state, { payload }) => {
-			state.product = payload;
+		setCourse: (state, { payload }) => {
+			state.course = payload;
 			state.loading = false;
 			state.error = null;
 			
 		},
+		
 		setError: (state, { payload }) => {
 			state.loading = false;
 			state.error = payload;
@@ -37,37 +37,21 @@ export const productsSlice = createSlice({
 			state.error = null;
 			state.pagination = payload;
 		},
-		
-		
-		
 		resetError: (state) => {
 			state.error = null;
 			
-			state.productUpdate = false;
+			state.courseUpdate = false;
 			
 		},
-		setProductUpdateFlag: (state) => {
-			state.productUpdate = true;
+		setCourseUpdateFlag: (state) => {
+			state.courseUpdate = true;
 			state.loading = false;
 		},
-		
 	},
 });
 
-export const {
-	setLoading,
-	setError,
-	setProducts,
-	setPagination,
-	
-	
-	setProduct,
-	
-	setProductUpdateFlag,
-	resetError,
-	
-} = productsSlice.actions;
+export const { setLoading, setError, setCourses, setPagination,setCourse,setCourseUpdateFlag ,resetError } = coursesSlice.actions;
 
-export default productsSlice.reducer;
+export default coursesSlice.reducer;
 
-export const productSelector = (state) => state.products;
+export const courseSelector = (state) => state.courses;

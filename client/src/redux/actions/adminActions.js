@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { setProducts, setProductUpdateFlag } from '../slices/product';
+import { setCourses, setCourseUpdateFlag} from '../slices/course';
 import {
 	
 	setError,
@@ -139,5 +140,83 @@ export const uploadProduct = (newProduct) => async (dispatch, getState) => {
 		);
 	}
 };
+//COURSE 
+
+
+export const updateCourse =
+	(semestre ,title,  id,course, exercice,courseIsNew, ) =>
+	async (dispatch, getState) => {
+		setLoading();
+		const {
+			user: { userInfo },
+		} = getState();
+
+		const config = { headers: { Authorization: `Bearer ${userInfo.token}`, 'Content-Type': 'application/json' } };
+
+		try {
+			const { data } = await axios.put(
+				'api/courses',
+				{ semestre , title, id, courseIsNew,course, exercice },
+				config
+			);
+			dispatch(setCourses(data));
+			dispatch(setCourseUpdateFlag());
+		} catch (error) {
+			setError(
+				error.response && error.response.data.message
+					? error.response.data.message
+					: error.message
+					? error.message
+					: 'An expected error has occured. Please try again later.'
+			);
+		}
+	};
+
+	export const deleteCourse = (id) => async (dispatch, getState) => {
+		setLoading();
+		const {
+			user: { userInfo },
+		} = getState();
+	
+		const config = { headers: { Authorization: `Bearer ${userInfo.token}`, 'Content-Type': 'application/json' } };
+	
+		try {
+			const { data } = await axios.delete(`api/courses/${id}`, config);
+			dispatch(setCourses(data));
+			dispatch(setCourseUpdateFlag());
+			dispatch(resetError());
+		} catch (error) {
+			setError(
+				error.response && error.response.data.message
+					? error.response.data.message
+					: error.message
+					? error.message
+					: 'An expected error has occured. Please try again later.'
+			);
+		}
+	};
+
+	export const uploadCourse = (newCourse) => async (dispatch, getState) => {
+		setLoading();
+		const {
+			user: { userInfo },
+		} = getState();
+	
+		const config = { headers: { Authorization: `Bearer ${userInfo.token}`, 'Content-Type': 'application/json' } };
+	
+		try {
+			const { data } = await axios.post(`api/Courses`, newCourse, config);
+			dispatch(setCourses(data));
+			dispatch(setCourseUpdateFlag());
+		} catch (error) {
+			setError(
+				error.response && error.response.data.message
+					? error.response.data.message
+					: error.message
+					? error.message
+					: 'An expected error has occured. Please try again later.'
+			);
+		}
+	};
 
 

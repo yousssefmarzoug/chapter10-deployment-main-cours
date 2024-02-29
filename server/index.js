@@ -8,7 +8,7 @@ import path from 'path';
 // Routes
 import productRoutes from './routes/productRoutes.js';
 import userRoutes from './routes/userRoutes.js';
-
+import courseRoutes from './routes/courseRoutes.js';
 
 
 connectToDatabase();
@@ -18,7 +18,7 @@ app.use(cors());
 
 app.use('/api/products', productRoutes);
 app.use('/api/users', userRoutes);
-
+app.use('/api/courses', courseRoutes);
 
 const GOOGLE_CLIENT_ID='198987498194-4r9giah0i505lulic3ik5n14etc9te7v.apps.googleusercontent.com'
 
