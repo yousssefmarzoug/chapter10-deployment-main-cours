@@ -6,7 +6,7 @@ import cors from 'cors';
 import path from 'path';
 
 // Routes
-import productRoutes from './routes/productRoutes.js';
+
 import userRoutes from './routes/userRoutes.js';
 import courseRoutes from './routes/courseRoutes.js';
 
@@ -16,7 +16,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-app.use('/api/products', productRoutes);
+
 app.use('/api/users', userRoutes);
 app.use('/api/courses', courseRoutes);
 

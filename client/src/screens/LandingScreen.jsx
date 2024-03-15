@@ -38,7 +38,7 @@ const LandingScreen = () => (
 						</Heading>
 					</Stack>
 					<HStack spacing='3'>
-						<Link as={ReactLink} to='/products' color={mode('cyan.500', 'yellow.200')}>
+						<Link as={ReactLink} to='/courses' color={mode('cyan.500', 'yellow.200')}>
 							Discover now
 						</Link>
 						<Icon color={mode('cyan.500', 'yellow.200')} as={FaArrowRight} />

@@ -30,7 +30,7 @@ const LoginScreen = () => {
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
 	const location = useLocation();
-	const redirect = '/products';
+	const redirect = '/courses';
 	const toast = useToast();
 
 	const { loading, error, userInfo, serverMsg } = useSelector((state) => state.user);

@@ -31,7 +31,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import NavLink from './NavLink';
 import ColorModeToggle from './ColorModeToggle';
 import { BiUserCheck, BiLogInCircle } from 'react-icons/bi';
-import { toggleFavorites } from '../redux/actions/productActions';
+
 import { HamburgerIcon, CloseIcon, ChevronDownIcon } from '@chakra-ui/icons';
 import { TbShoppingCart } from 'react-icons/tb';
 import { logout } from '../redux/actions/userActions';
@@ -40,7 +40,7 @@ import { FcGoogle } from 'react-icons/fc';
 import { googleLogout } from '@react-oauth/google';
 
 const Links = [
-	{ name: 'Products', route: '/products' },
+	
 	{ name: 'Courses', route: '/courses' },
 	{ name: 'Hot Deals', route: '/hot-deals' },
 	{ name: 'Contact', route: '/contact' },
