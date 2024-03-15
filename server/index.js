@@ -1,4 +1,5 @@
-
+import dotenv from 'dotenv';
+dotenv.config();
 import connectToDatabase from './db.js';
 import express from 'express';
 import cors from 'cors';
