@@ -14,6 +14,7 @@ import {
 import { FaArrowRight } from 'react-icons/fa';
 import { Link as ReactLink } from 'react-router-dom';
 import { BsPhoneFlip } from 'react-icons/bs';
+import { TbMathSymbols } from "react-icons/tb";
 
 const LandingScreen = () => (
 	<Box maxW='8xl' mx='auto' p={{ base: '0', lg: '12' }} minH='6xl'>
@@ -28,9 +29,9 @@ const LandingScreen = () => (
 				<Stack spacing={{ base: '8', lg: '10' }}>
 					<Stack spacing={{ base: '2', lg: '4' }}>
 						<Flex alignItems='center'>
-							<Icon as={BsPhoneFlip} h={12} w={12} color={mode('cyan.500', 'yellow.200')} />
+							<Icon as={TbMathSymbols} h={12} w={12} color={mode('cyan.500', 'yellow.200')} />
 							<Text fontSize='4xl' fontWeight='bold'>
-								Tech Lines
+								MATHS
 							</Text>
 						</Flex>
 						<Heading size='xl' fontWeight='normal'>

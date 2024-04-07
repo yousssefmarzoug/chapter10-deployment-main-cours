@@ -25,6 +25,7 @@ import {
 } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
 import { BsPhoneFlip } from 'react-icons/bs';
+import { TbMathSymbols } from "react-icons/tb";
 import { Link as ReactLink } from 'react-router-dom';
 import { MdOutlineFavorite, MdOutlineFavoriteBorder } from 'react-icons/md';
 import { useDispatch, useSelector } from 'react-redux';
@@ -42,7 +43,7 @@ import { googleLogout } from '@react-oauth/google';
 const Links = [
 	
 	{ name: 'Courses', route: '/courses' },
-	{ name: 'Hot Deals', route: '/hot-deals' },
+	{ name: 'About', route: '/About' },
 	{ name: 'Contact', route: '/contact' },
 	{ name: 'Services', route: '/services' },
 ];
@@ -84,8 +85,8 @@ const Header = () => {
 					</Flex>
 					<HStack spacing='8' alignItems='center'>
 						<Box alignItems='center' display='flex' as={ReactLink} to='/'>
-							<Icon as={BsPhoneFlip} h='6' w='6' color={mode('black', 'yellow.200')} />
-							<Text as='b'>Tech Lines</Text>
+							<Icon as={TbMathSymbols} h='6' w='6' color={mode('black', 'yellow.200')} />
+							<Text as='b'>MATHS</Text>
 						</Box>
 
 						<HStack as='nav' spacing='4' display={{ base: 'none', md: 'flex' }}>
