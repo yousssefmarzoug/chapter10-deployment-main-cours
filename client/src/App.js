@@ -41,7 +41,7 @@ function App() {
 
 	return (
 		<ChakraProvider theme={theme}>
-			{!googleClient ? (
+			{ !googleClient ? (
 				<VStack pt='37vh'>
 					<Spinner mt='20' thickness='2px' speed='0.65s' emptyColor='gray.200' color='cyan.500' size='xl' />
 				</VStack>

@@ -14,6 +14,7 @@ import {
 } from '@chakra-ui/react';
 import { FaGithub, FaLinkedin, FaFacebook } from 'react-icons/fa';
 import { BsPhoneFlip } from 'react-icons/bs';
+import { TbMathSymbols } from "react-icons/tb";
 
 const Footer = () => (
 	<Box w='100%' bg={mode('cyan.300', 'gray.900')}>
@@ -25,9 +26,9 @@ const Footer = () => (
 				py={{ base: '12', md: '16' }}>
 				<Stack spacing={{ base: '6', md: '8' }} align='start'>
 					<Flex alignItems='center'>
-						<Icon as={BsPhoneFlip} h='10' w='10' color={mode('black', 'yellow.200')} />
+						<Icon as={TbMathSymbols} h='10' w='10' color={mode('black', 'yellow.200')} />
 						<Text fontSize='2xl' fontWeight='extrabold'>
-							Tech Lines
+							MATHS
 						</Text>
 					</Flex>
 					<Text color='muted'>We love phones.</Text>
@@ -36,7 +37,7 @@ const Footer = () => (
 					<Stack direction='row' spacing='8'>
 						<Stack spacing='4' minW='36' flex='1'>
 							<Text fontSize='sm' fontWeight='semibold' color='subtle'>
-								Product
+								Coures
 							</Text>
 							<Stack spacing='3' shouldWrapChildren>
 								<Button variant='link'>How it works</Button>
@@ -70,7 +71,7 @@ const Footer = () => (
 			<Divider />
 			<Stack pt='8' pb='12' justify='space-between' direction={{ base: 'column-reverse', md: 'row' }} align='center'>
 				<Text fontSize='sm' color='subtle'>
-					&copy; {new Date().getFullYear()} Tech Lines, Inc. All rights reserved.
+					&copy; {new Date().getFullYear()} MATHS, Inc. All rights reserved.
 				</Text>
 				<ButtonGroup variant='ghost'>
 					<IconButton as='a' href='#' icon={<FaLinkedin fontSize='1.25rem' />} />

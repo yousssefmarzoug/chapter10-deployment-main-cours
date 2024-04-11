@@ -74,7 +74,7 @@ const LoginScreen = () => {
 	return (
 		<Formik
 			initialValues={{ email: '', password: '' }}
-			validationSchema={Yup.object({
+			validationSchema= { Yup.object({
 				email: Yup.string().email('Invalid email.').required('An email address is required.'),
 				password: Yup.string()
 					.min(1, 'Password is too short - must contain at least 1 character.')
@@ -103,7 +103,7 @@ const LoginScreen = () => {
 							bg={{ base: 'transparent', md: 'bg-surface' }}
 							boxShadow={{ base: 'none', md: 'xl' }}>
 							<Stack spacing='6' as='form' onSubmit={formik.handleSubmit}>
-								{error && (
+								{ error && (
 									<Alert
 										status='error'
 										flexDirection='column'
