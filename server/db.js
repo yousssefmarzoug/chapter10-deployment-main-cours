@@ -4,7 +4,6 @@ dotenv.config();
 
 
  const MONGO_URI = process.env.MONGO_URI;
- //const MONGO_URI = 'mongodb+srv://youssefmarzoug:19041@cluster0.7rbusfz.mongodb.net/?retryWrites=true&w=majority';
  console.log(process.env.MONGO_URI);
 const connectToDatabase = async () => {
 	try {
