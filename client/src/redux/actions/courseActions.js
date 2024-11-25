@@ -1,10 +1,10 @@
 import { setCourses, setLoading, setError, setPagination ,setCourse,resetError,} from '../slices/course';
-import axios from 'axios';
+import apiClient from '../utils/api';
 
 export const getCourses = (page, favouriteToggle) => async (dispatch) => {
 	dispatch(setLoading());
 	try {
-		const { data } = await axios.get(`/api/courses`);
+		const { data } = await apiClient.get(`/api/courses`);
 		const { courses, pagination } = data;
 		dispatch(setCourses(courses));
 		dispatch(setPagination(pagination));
@@ -27,7 +27,7 @@ export const getCourses = (page, favouriteToggle) => async (dispatch) => {
 export const getCourse = (id) => async (dispatch) => {
 	dispatch(setLoading(true));
 	try {
-		const { data } = await axios.get(`/api/courses/${id}`);
+		const { data } = await apiClient.get(`/api/courses/${id}`);
 		dispatch(setCourse(data));
 	} catch (error) {
 		dispatch(

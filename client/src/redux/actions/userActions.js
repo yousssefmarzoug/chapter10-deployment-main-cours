@@ -1,4 +1,4 @@
-import axios from 'axios';
+import apiClient from '../utils/api';
 import {
 	
 	setError,
@@ -18,7 +18,7 @@ export const login = (email, password) => async (dispatch) => {
 	try {
 		const config = { headers: { 'Content-Type': 'application/json' } };
 
-		const { data } = await axios.post('api/users/login', { email, password }, config);
+		const { data } = await apiClient.post('api/users/login', { email, password }, config);
 
 		dispatch(userLogin(data));
 		localStorage.setItem('userInfo', JSON.stringify(data));
@@ -46,7 +46,7 @@ export const register = (name, email, password) => async (dispatch) => {
 	try {
 		const config = { headers: { 'Content-Type': 'application/json' } };
 
-		const { data } = await axios.post('api/users/register', { name, email, password }, config);
+		const { data } = await apiClient.post('api/users/register', { name, email, password }, config);
 
 		dispatch(userLogin(data));
 		localStorage.setItem('userInfo', JSON.stringify(data));
@@ -68,7 +68,7 @@ export const verifyEmail = (token) => async (dispatch) => {
 	try {
 		const config = { headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' } };
 
-		await axios.get(`/api/users/verify-email`, config);
+		await apiClient.get(`/api/users/verify-email`, config);
 
 		dispatch(verificationEmail());
 		const userInfo = JSON.parse(localStorage.getItem('userInfo'));
@@ -94,7 +94,7 @@ export const sendResetEmail = (email) => async (dispatch) => {
 	try {
 		const config = { headers: { 'Content-Type': 'application/json' } };
 
-		const { data, status } = await axios.post(`/api/users/password-reset-request`, { email }, config);
+		const { data, status } = await apiClient.post(`/api/users/password-reset-request`, { email }, config);
 
 		dispatch(setServerResponseMsg(data));
 		dispatch(setServerResponseStatus(status));
@@ -116,7 +116,7 @@ export const resetPassword = (password, token) => async (dispatch) => {
 	try {
 		const config = { headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' } };
 
-		const { data, status } = await axios.post(`/api/users/password-reset`, { password }, config);
+		const { data, status } = await apiClient.post(`/api/users/password-reset`, { password }, config);
 		console.log(data, status);
 		dispatch(setServerResponseMsg(data, status));
 		dispatch(setServerResponseStatus(status));
@@ -142,7 +142,7 @@ export const googleLogin = (googleId, email, name, googleImage) => async (dispat
 	try {
 		const config = { headers: { 'Content-Type': 'application/json' } };
 
-		const { data } = await axios.post('/api/users/google-login', { googleId, email, name, googleImage }, config);
+		const { data } = await apiClient.post('/api/users/google-login', { googleId, email, name, googleImage }, config);
 		dispatch(userLogin(data));
 		localStorage.setItem('userInfo', JSON.stringify(data));
 	} catch (error) {

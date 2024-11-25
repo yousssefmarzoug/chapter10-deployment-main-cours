@@ -1,4 +1,4 @@
-import axios from 'axios';
+import apiClient from '../utils/api';
 
 import { setCourses, setCourseUpdateFlag} from '../slices/course';
 import {
@@ -12,6 +12,8 @@ import {
 	
 } from '../slices/admin';
 
+
+
 export const getAllUsers = () => async (dispatch, getState) => {
 	setLoading();
 	const {
@@ -21,7 +23,7 @@ export const getAllUsers = () => async (dispatch, getState) => {
 	const config = { headers: { Authorization: `Bearer ${userInfo.token}`, 'Content-Type': 'application/json' } };
 
 	try {
-		const { data } = await axios.get('api/users', config);
+		const { data } = await apiClient.get('api/users', config);
 		dispatch(getUsers(data));
 	} catch (error) {
 		setError(
@@ -43,7 +45,7 @@ export const deleteUser = (id) => async (dispatch, getState) => {
 	const config = { headers: { Authorization: `Bearer ${userInfo.token}`, 'Content-Type': 'application/json' } };
 
 	try {
-		const { data } = await axios.delete(`api/users/${id}`, config);
+		const { data } = await apiClient.delete(`api/users/${id}`, config);
 		dispatch(userDelete(data));
 	} catch (error) {
 		setError(
@@ -84,7 +86,7 @@ export const updateCourse =
 		const config = { headers: { Authorization: `Bearer ${userInfo.token}`, 'Content-Type': 'application/json' } };
 
 		try {
-			const { data } = await axios.put(
+			const { data } = await apiClient.put(
 				'api/courses',
 				{ semestre , title, id, courseIsNew,course, exercice },
 				config
@@ -111,7 +113,7 @@ export const updateCourse =
 		const config = { headers: { Authorization: `Bearer ${userInfo.token}`, 'Content-Type': 'application/json' } };
 	
 		try {
-			const { data } = await axios.delete(`api/courses/${id}`, config);
+			const { data } = await apiClient.delete(`api/courses/${id}`, config);
 			dispatch(setCourses(data));
 			dispatch(setCourseUpdateFlag());
 			dispatch(resetError());
@@ -135,7 +137,7 @@ export const updateCourse =
 		const config = { headers: { Authorization: `Bearer ${userInfo.token}`, 'Content-Type': 'application/json' } };
 	
 		try {
-			const { data } = await axios.post(`api/Courses`, newCourse, config);
+			const { data } = await apiClient.post(`api/Courses`, newCourse, config);
 			dispatch(setCourses(data));
 			dispatch(setCourseUpdateFlag());
 		} catch (error) {
